@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Heading, Text, VStack, Flex, Button, Image } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack, Flex, Button, Image, Link } from '@chakra-ui/react';
 import { gsap } from 'gsap';
 import './index.css';
 import Resume from '../assets/Resume.pdf'
@@ -132,7 +132,7 @@ const LandingPage = () => {
         }
       },
       {
-        threshold: 0.5, // Trigger when at least 50% of the Skills section is visible
+        threshold: 0.4, // Trigger when at least 50% of the Skills section is visible
       }
     );
 
@@ -207,33 +207,51 @@ const LandingPage = () => {
         >
           <img src={JA} alt="Joshua Askew" className='icon' />
           <Text
-            className='hello'
+            className="hello"
             fontSize={{ base: '18px', md: '38px', lg: '38px' }}
             textAlign="start"
-            fontFamily={'Lato, sans-serif'}
+            fontFamily="Lato, sans-serif"
           >
-            Hello. I'm Joshua Askew, a
+            Hello. I'm{' '}
+            <Link
+              href="mailto:Joshua.Askew43@gmail.com?subject=Hello%20Joshua"
+              textDecoration="none"
+              _hover={{ textDecoration: 'underline', color: "#d43131" }}
+            >
+              Joshua Askew
+            </Link>
+            , a
           </Text>
-          <Heading
-            as="h1"
-            className="header"
-            fontSize={{ base: '4xl', md: '78px', lg: '98px' }}
-            textAlign="start"
-            fontFamily="'Lato', sans-serif"
-            color="white"
-            marginBottom={{ base: 1, md: 4, lg: 8 }}
-            marginTop={{ base: 1, md: 4, lg: 8 }}
+          <Link
+            href="https://github.com/JoshAskew"
+            target="_blank"
+            textDecoration= "none"
           >
-            {nameLetters}
-          </Heading>
-          <Text
-            className='hello'
+            <Heading
+              as="h1"
+              className="header"
+              fontSize={{ base: '4xl', md: '78px', lg: '98px' }}
+              textAlign="start"
+              fontFamily="'Lato', sans-serif"
+              color="white"
+              marginBottom={{ base: 1, md: 4, lg: 8 }}
+              marginTop={{ base: 1, md: 4, lg: 8 }}
+            >
+              {nameLetters}
+            </Heading>
+          </Link><br />
+          <Link
+            href="https://www.linkedin.com/in/joshua-askew-0293bb338/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hello"
             fontSize={{ base: '18px', md: '38px', lg: '38px' }}
             textAlign="start"
-            fontFamily={'Lato, sans-serif'}
+            fontFamily="Lato, sans-serif"
+            _hover={{ textDecoration: 'underline', color: "#d43131" }}
           >
             Specializing in React & UI Design
-          </Text>
+          </Link>
         </Box>
         {/* Scroll divider*/}
         <Box
@@ -246,7 +264,7 @@ const LandingPage = () => {
           justifyContent="flex-start"
           opacity={0}  // Start with hidden state
           ref={scrollRef}
-          marginTop= {{ base: '-60px', md: '50px', lg: '0px' }}
+          marginTop={{ base: '-60px', md: '50px', lg: '100px' }}
         >
           <Text
             fontFamily="Lato, sans-serif"
@@ -330,6 +348,7 @@ const LandingPage = () => {
           flex="1"
           width={{ base: '100%', md: '40%' }}
           marginRight={{ base: 0, md: 8 }}
+          marginTop={{ base: '50px', md: '130px', lg: '200px' }}
         >
           <Box
             flex="1"
@@ -343,6 +362,7 @@ const LandingPage = () => {
               flexDirection="row"  // Use row direction to align text and line horizontally
               alignItems="center"  // Vertically center the text and line
               justifyContent="flex-start"  // Align to the left
+
             >
               <Text
                 fontFamily="Lato, sans-serif"
@@ -397,21 +417,21 @@ const LandingPage = () => {
             alt="Globe"
             className="spinning-globe"
             position="absolute"
-            top={{ base: '100px', md: '100px', lg: '0px' }}
-            right={{ base: '10px', md: '10px', lg: '100px' }}
+            top={{ base: '150px', md: '230px', lg: '250px' }}
+            right={{ base: '10px', md: '80px', lg: '100px' }}
             zIndex={1}
             width={{ base: '100px', md: '250px', lg: '350px' }} // Responsive sizes
             height={{ base: '100px', md: '250px', lg: '350px' }} // Responsive sizes
           />
         </Box>
         <Box position="absolute" width="100%">
-        <Image
+          <Image
             src={Globe}
             alt="Globe"
             className="spinning-globe"
             position="absolute"
-            top={{ base: '200px', md: '160px', lg: '100px' }}
-            right={{ base: '50px', md: '100px', lg: '250px' }}
+            top={{ base: '250px', md: '300px', lg: '350px' }}
+            right={{ base: '50px', md: '180px', lg: '250px' }}
             zIndex={1}
             width={{ base: '100px', md: '250px', lg: '350px' }} // Responsive sizes
             height={{ base: '100px', md: '250px', lg: '350px' }} // Responsive sizes
@@ -430,7 +450,7 @@ const LandingPage = () => {
         left="5%"
         zIndex={1}
         width="90%"
-        marginTop={{ base: '310px', md: '2vh', lg: '3vh' }}
+        marginTop={{ base: '400px', md: '360px', lg: '430px' }}
       >
         {/* Divider */}
         <Box
@@ -440,6 +460,7 @@ const LandingPage = () => {
           flexDirection="row"
           alignItems="center"
           justifyContent="flex-start"
+
         >
           <Text
             fontFamily="Lato, sans-serif"
@@ -447,6 +468,7 @@ const LandingPage = () => {
             fontWeight="bold"
             marginRight="8px"
             color="white"
+
           >
             FEATURED WORK
           </Text>
@@ -456,7 +478,7 @@ const LandingPage = () => {
         {/* Featured Work Content */}
         <Flex
           direction={{ base: 'column', md: 'row' }}
-          marginTop={{ base: '3vh', md: '4vh', lg: '2vh' }}
+          marginTop={{ base: '8vh', md: '4vh', lg: '9vh' }}
           width="100%"
           marginLeft={{ base: "0", md: 4 }}
           justifyContent="space-around"
@@ -469,8 +491,9 @@ const LandingPage = () => {
       <Box
         direction={{ base: 'column', md: 'row' }}
         alignItems="flex-start"
-        marginTop={{ base: '380px', md: '2vh', lg: '100px' }}
+        marginTop={{ base: '500px', md: '400px', lg: '500px' }}
         padding={4}
+        paddingBottom="80px"
         position="absolute"
         top="240vh" // Positioning for the new section below Featured Work
         left="5%"
@@ -533,7 +556,7 @@ const LandingPage = () => {
                 variant="solid"
                 fontFamily="'Lato', sans-serif"
                 position={{ base: 'absolute', md: 'absolute', lg: 'absolute' }}
-                top={{ base: '99%', md: '82%', lg: '82%' }}
+                top={{ base: '80%', md: '82%', lg: '82%' }}
                 left={{ base: '30%', md: '0%', lg: '0%' }}
                 fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
                 backgroundColor="#353535"
@@ -560,7 +583,12 @@ const LandingPage = () => {
               Email:
             </Text>
             <Text fontFamily="Lato, sans-serif" fontSize="16px">
-              Joshua.Askew43@gmail.com
+              <a
+                href="mailto:Joshua.Askew43@gmail.com?subject=Hello%20Joshua"
+                style={{ color: '#d43131', textDecoration: 'none' }}
+              >
+                Joshua.Askew43@gmail.com
+              </a>
             </Text>
 
             <Text
