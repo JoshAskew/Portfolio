@@ -6,7 +6,7 @@ import BookSearch from "../images/booksearch.png";
 import Skull from "../images/Skull-tune-forge.png"; 
 import Candidate from "../images/Candidate.png";
 import Employee from "../images/Employee.png";
-import Readme from '../images/Readme.png';
+import Readme from '../images/readme.png';
 
 const images = [
   TriviaTitans,
