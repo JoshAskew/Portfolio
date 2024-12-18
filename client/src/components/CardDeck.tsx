@@ -189,7 +189,7 @@ const Deck = () => {
         size="lg"
         variant="ghost"
         position="absolute"
-        left="25%"
+        left={{ base: '-40px', md: '20%', lg:'25%' }}
         top="50%"
         _hover={{
           background: 'transparent',
@@ -209,7 +209,7 @@ const Deck = () => {
         size="lg"
         variant="ghost"
         position="absolute"
-        right="25%"
+        right={{ base: '-40px', md: '20%', lg:'25%' }}
         top="50%"
         _hover={{
           background: 'transparent',

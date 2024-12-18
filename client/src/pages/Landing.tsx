@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Box, Heading, Text, VStack, Flex, Button } from '@chakra-ui/react';
+import { Box, Heading, Text, VStack, Flex, Button, Image } from '@chakra-ui/react';
 import { gsap } from 'gsap';
 import './index.css';
 import Resume from '../assets/Resume.pdf'
@@ -102,7 +102,7 @@ const LandingPage = () => {
       x: -400,  // Start from the left
       ease: 'power4.out',  // Smooth easing for the effect
     });
-    
+
 
     gsap.from('.text', {
       duration: 1.5,
@@ -161,7 +161,7 @@ const LandingPage = () => {
         window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 1;
       setIsSvgVisible(!isAtBottom); // Hide the SVG if the user is at the bottom
     };
-  
+
     window.addEventListener('scroll', onScroll);
     return () => {
       window.removeEventListener('scroll', onScroll);
@@ -171,17 +171,18 @@ const LandingPage = () => {
   const name = 'Full-Stack Developer';
 
   const nameLetters = name.split(' ').map((word, wordIndex) => (
-    <span
+    <Box
       key={wordIndex}
       className="word"
-      style={{ display: 'block', marginBottom: wordIndex === 0 ? '50px' : '0' }}
+      display="block"
+      marginBottom={wordIndex === 0 ? { base: '0px', md: '50px', lg: '50px' } : '0'}
     >
       {word.split('').map((letter, index) => (
         <span key={`${wordIndex}-${index}`} className="letter">
           {letter}
         </span>
       ))}
-    </span>
+    </Box>
   ));
 
   return (
@@ -206,7 +207,7 @@ const LandingPage = () => {
         >
           <img src={JA} alt="Joshua Askew" className='icon' />
           <Text
-          className='hello'
+            className='hello'
             fontSize={{ base: '18px', md: '38px', lg: '38px' }}
             textAlign="start"
             fontFamily={'Lato, sans-serif'}
@@ -220,8 +221,8 @@ const LandingPage = () => {
             textAlign="start"
             fontFamily="'Lato', sans-serif"
             color="white"
-            marginBottom={8}
-            marginTop={8}
+            marginBottom={{ base: 1, md: 4, lg: 8 }}
+            marginTop={{ base: 1, md: 4, lg: 8 }}
           >
             {nameLetters}
           </Heading>
@@ -245,6 +246,7 @@ const LandingPage = () => {
           justifyContent="flex-start"
           opacity={0}  // Start with hidden state
           ref={scrollRef}
+          marginTop= {{ base: '-60px', md: '50px', lg: '0px' }}
         >
           <Text
             fontFamily="Lato, sans-serif"
@@ -266,8 +268,8 @@ const LandingPage = () => {
         {/* Open to Work Section */}
         <Box
           position="absolute"
-          bottom="80px"
-          right="120px"
+          bottom={{ base: '0px', md: '15px', lg: '80px' }}
+          right={{ base: '0px', md: '15px', lg: '120px' }}
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -279,13 +281,13 @@ const LandingPage = () => {
           ref={workRef}
         >
           <Text
-            marginRight="8px"
+            marginRight={{ base: 0, md: 4, lg: 8 }}
             fontFamily="'Lato', sans-serif"
-            fontSize="18px"
+            fontSize={{ base: '14px', md: '16px', lg: '18px' }}
             fontWeight="bold"
           >
             OPEN TO WORK<br></br><Text
-              fontSize="14px"
+              fontSize={{ base: '12px', md: '14px', lg: '16px' }}
               fontWeight="normal"
               fontFamily="'Lato', sans-serif"
             >BASED IN MINNESOTA</Text>
@@ -389,44 +391,46 @@ const LandingPage = () => {
             • Agile Methodologies <br />
           </Text>
         </Box>
-        <Box position="absolute" width="100%" marginTop={{ base: '10vh', md: '0', lg:'0' }}>
-          <img src={Dots} alt="Globe" className="spinning-globe"
-            style={{
-              width: '350px',
-              height: '350px',
-              position: 'absolute',
-              top: '10px',
-              right: '10px',
-              zIndex: 1,
-            }}
+        <Box position="absolute" width="100%" marginTop={{ base: '10vh', md: '0', lg: '0' }}>
+          <Image
+            src={Dots}
+            alt="Globe"
+            className="spinning-globe"
+            position="absolute"
+            top={{ base: '100px', md: '100px', lg: '0px' }}
+            right={{ base: '10px', md: '10px', lg: '100px' }}
+            zIndex={1}
+            width={{ base: '100px', md: '250px', lg: '350px' }} // Responsive sizes
+            height={{ base: '100px', md: '250px', lg: '350px' }} // Responsive sizes
           />
         </Box>
-        <Box position="relative" width="100%">
-          <img src={Globe} alt="Globe" className="spinning-globe"
-            style={{
-              width: '350px',
-              height: '350px',
-              position: 'absolute',
-              top: '100px',
-              right: '100px',
-              zIndex: 1,
-            }}
+        <Box position="absolute" width="100%">
+        <Image
+            src={Globe}
+            alt="Globe"
+            className="spinning-globe"
+            position="absolute"
+            top={{ base: '200px', md: '160px', lg: '100px' }}
+            right={{ base: '50px', md: '100px', lg: '250px' }}
+            zIndex={1}
+            width={{ base: '100px', md: '250px', lg: '350px' }} // Responsive sizes
+            height={{ base: '100px', md: '250px', lg: '350px' }} // Responsive sizes
           />
         </Box>
-       
+
       </Flex>
 
       {/* Featured Work Section */}
       <Box
         direction={{ base: 'column', md: 'row' }}
         alignItems="flex-start"
-        marginTop="3vh" // Adjust spacing from the skills section
         padding={4}
         position="absolute"
         top="180vh" // Positioning for the new section below Skills
         left="5%"
         zIndex={1}
         width="90%"
+        marginTop={{ base: '310px', md: '2vh', lg: '3vh' }}
       >
         {/* Divider */}
         <Box
@@ -452,8 +456,9 @@ const LandingPage = () => {
         {/* Featured Work Content */}
         <Flex
           direction={{ base: 'column', md: 'row' }}
-          marginTop="2vh"
+          marginTop={{ base: '3vh', md: '4vh', lg: '2vh' }}
           width="100%"
+          marginLeft={{ base: "0", md: 4 }}
           justifyContent="space-around"
         >
           <Card />
@@ -464,7 +469,7 @@ const LandingPage = () => {
       <Box
         direction={{ base: 'column', md: 'row' }}
         alignItems="flex-start"
-        marginTop="100px" // Adjust spacing from the previous section
+        marginTop={{ base: '380px', md: '2vh', lg: '100px' }}
         padding={4}
         position="absolute"
         top="240vh" // Positioning for the new section below Featured Work
@@ -508,7 +513,7 @@ const LandingPage = () => {
               fontSize="24px"
               fontWeight="bold"
               lineHeight="1.6"
-              marginBottom="2"
+              marginBottom="2px"
               marginTop={{ base: 0, md: 4 }}
             >
               Reach Out
@@ -522,26 +527,26 @@ const LandingPage = () => {
               Drop me a message, and I'll get back to you as soon as possible!
             </Text>
             <a href={Resume} download>
-            <Button
-              display={"flex"}
-              size="lg"
-              variant="solid"
-              fontFamily="'Lato', sans-serif"
-              position={{ base: 'absolute', md: 'absolute', lg: 'absolute' }}
-              top={{ base: '99%', md: '80%', lg: '80%' }}
-              left={{ base: '20%', md: '0%', lg: '0%' }}
-              fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
-              backgroundColor="#353535"
-              color="white"
-              _hover={{
-                transform: "scale(1.1)", // Slightly enlarge the button
-                transition: "all 0.5s ease-in-out",
-                backgroundColor: "#d43131", // Change the background color on hover
-              }}
-            >
-              Resume Download
-            </Button>
-          </a>
+              <Button
+                display={"flex"}
+                size="lg"
+                variant="solid"
+                fontFamily="'Lato', sans-serif"
+                position={{ base: 'absolute', md: 'absolute', lg: 'absolute' }}
+                top={{ base: '99%', md: '82%', lg: '82%' }}
+                left={{ base: '30%', md: '0%', lg: '0%' }}
+                fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
+                backgroundColor="#353535"
+                color="white"
+                _hover={{
+                  transform: "scale(1.1)", // Slightly enlarge the button
+                  transition: "all 0.5s ease-in-out",
+                  backgroundColor: "#d43131", // Change the background color on hover
+                }}
+              >
+                Resume Download
+              </Button>
+            </a>
           </Box>
 
           {/* Right side content (e.g., email and social links) */}
@@ -574,8 +579,8 @@ const LandingPage = () => {
                 rel="noopener noreferrer"
                 style={{ color: '#d43131' }}
               >
-                https://www.linkedin.com/in/joshua-askew-0293bb338/ 
-               </a>
+                https://www.linkedin.com/in/joshua-askew-0293bb338/
+              </a>
             </Text>
 
             <Text
