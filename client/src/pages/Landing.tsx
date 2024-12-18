@@ -526,7 +526,7 @@ const LandingPage = () => {
       <Box
         direction={{ base: 'column', md: 'row' }}
         alignItems="flex-start"
-        marginTop={{ base: '3200px', md: '1350px', lg: '1250px' }}
+        marginTop={{ base: '3300px', md: '1350px', lg: '1250px' }}
         padding={4}
         paddingBottom="80px"
         position="absolute"
