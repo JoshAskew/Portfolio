@@ -483,12 +483,12 @@ const LandingPage = () => {
         left="5%"
         zIndex={1}
         width="90%"
-        marginTop={{ base: '900px', md: '500px', lg: '530px' }}
+        marginTop={{ base: '1000px', md: '500px', lg: '530px' }}
       >
         {/* Divider */}
         <Box
           position="absolute"
-          top={{ base: '-750px', md: '-110px', lg: '-70px' }}
+          top={{ base: '-800px', md: '-110px', lg: '-70px' }}
           width="400px"
           display="flex"
           flexDirection="row"
@@ -526,7 +526,7 @@ const LandingPage = () => {
       <Box
         direction={{ base: 'column', md: 'row' }}
         alignItems="flex-start"
-        marginTop={{ base: '3150px', md: '1350px', lg: '1250px' }}
+        marginTop={{ base: '3200px', md: '1350px', lg: '1250px' }}
         padding={4}
         paddingBottom="80px"
         position="absolute"
