@@ -5,6 +5,8 @@ import Cypress from "../images/cypress.png";
 import BookSearch from "../images/booksearch.png"; 
 import Skull from "../images/Skull-tune-forge.png"; 
 import Candidate from "../images/Candidate.png";
+import Employee from "../images/Employee.png";
+import Readme from '../images/Readme.png';
 
 const images = [
   TriviaTitans,
@@ -13,6 +15,8 @@ const images = [
   BookSearch,
   Skull,
   Candidate,
+  Readme,
+  Employee,
 ];
 
 const gitHubLinks = [
@@ -22,15 +26,19 @@ const gitHubLinks = [
   'https://github.com/JoshAskew/Book-Search-Engine',
   'https://github.com/JoshAskew/TuneForge',
   'https://github.com/JoshAskew/Candidate-Finder',
+  'https://github.com/JoshAskew/README-Generator',
+  'https://github.com/JoshAskew/Employee-Tracker',
 ];
 
 const deployedLinks = [
   'https://trivia-titans.onrender.com/',
   'https://aline-events.onrender.com/',
-  'https://github.com/JoshAskew/CI-CD-Setup',
+  'https://drive.google.com/file/d/1dStDaVlv8MsPqQEgRrCM4VF6fS5d1l3F/view?usp=sharing',
   'https://book-search-engine-1m61.onrender.com/',
   'https://yahye-mohamed101.github.io/TuneForge/',
   'https://candidate-finder.onrender.com/',
+  'https://drive.google.com/file/d/17jJPLocSZPg2-Nmu7JCSovt07bV2Yt0O/view?usp=sharing',
+  'https://drive.google.com/file/d/1yquAxd2P-zdMhfMQ_Fr8S1LJSVSJ1pHz/view?usp=sharing',
 ];
 
 const Card = ({
@@ -91,6 +99,8 @@ const Deck = () => {
     'Book Search Engine: Find and save your favorite books.',
     'TuneForge: A platform for music creation.',
     'Candidate Finder: Discover candidates effortlessly.',
+    'README Generator: Create professional READMEs.',
+    'Employee Tracker: Manage your employees with ease.',
   ];
 
   return (

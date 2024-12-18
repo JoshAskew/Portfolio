@@ -483,12 +483,12 @@ const LandingPage = () => {
         left="5%"
         zIndex={1}
         width="90%"
-        marginTop={{ base: '900px', md: '540px', lg: '530px' }}
+        marginTop={{ base: '900px', md: '500px', lg: '530px' }}
       >
         {/* Divider */}
         <Box
           position="absolute"
-          top={{ base: '-800px', md: '-110px', lg: '-70px' }}
+          top={{ base: '-750px', md: '-110px', lg: '-70px' }}
           width="400px"
           display="flex"
           flexDirection="row"
@@ -513,7 +513,7 @@ const LandingPage = () => {
         {/* Featured Work Content */}
         <Flex
           direction={{ base: 'column', md: 'row' }}
-          marginTop={{ base: '8vh', md: '4vh', lg: '9vh' }}
+          marginTop={{ base: '580px', md: '250px', lg: '300px' }}
           width="100%"
           marginLeft={{ base: "0", md: 4 }}
           justifyContent="space-around"
@@ -526,7 +526,7 @@ const LandingPage = () => {
       <Box
         direction={{ base: 'column', md: 'row' }}
         alignItems="flex-start"
-        marginTop={{ base: '2200px', md: '950px', lg: '850px' }}
+        marginTop={{ base: '3150px', md: '1350px', lg: '1250px' }}
         padding={4}
         paddingBottom="80px"
         position="absolute"
