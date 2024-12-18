@@ -7,10 +7,10 @@ import TriviaTitans from "../images/trivia-titans-logo.png";
 import Aline from "../images/alineold.webp"; 
 import Cypress from "../images/cypress.png"; 
 import BookSearch from "../images/booksearch.png"; 
-import Skull from "../images/skull-tune-forge.png"; 
+import Skull from "../images/Skull-tune-forge.png"; 
 import LeftArrow from "../images/leftchevron.png"; 
 import RightArrow from "../images/chevronright.png"; 
-import Candidate from "../images/candidate.png";
+import Candidate from "../images/Candidate.png";
 
 
 // Sample image URLs for the backgrounds
