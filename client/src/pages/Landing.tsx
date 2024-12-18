@@ -10,6 +10,7 @@ import Card from '../components/CardDeck';
 import Dots from '../images/Dots.png';
 
 
+
 const LandingPage = () => {
   const [isSkillsVisible, setIsSkillsVisible] = useState(false); // Track visibility of Skills section
   const [isSvgVisible, setIsSvgVisible] = useState(true); // Track visibility of SVG
@@ -17,6 +18,35 @@ const LandingPage = () => {
   const svgRef = useRef<SVGSVGElement | null>(null); // Reference to the SVG
   const scrollRef = useRef(null);
   const workRef = useRef(null);
+  const [opacity, setOpacity] = useState(1); // Initial opacity (fully visible)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;  // Current scroll position
+      const fadeStartPoint = 10;  // Where fading should begin
+      
+      let newOpacity = 1;
+
+      // Only start fading once the scroll position exceeds the fadeStartPoint
+      if (scrollTop > fadeStartPoint) {
+        // Calculate how far the user has scrolled past the fadeStartPoint
+        const fadeDistance = scrollTop - fadeStartPoint;
+        // Calculate new opacity based on how far the user has scrolled
+        const fadeFactor = 0.002; // Lower value for faster fading
+        newOpacity = 1 - (fadeDistance * fadeFactor);
+        
+        // Ensure opacity doesn't go below 0
+        newOpacity = Math.max(0, newOpacity);
+      }
+
+      setOpacity(newOpacity);
+    };
+    // Attach scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const useCustomCursor = () => {
     useEffect(() => {
@@ -168,7 +198,9 @@ const LandingPage = () => {
     };
   }, []);
 
-  const name = 'Full-Stack Developer';
+  
+
+  const name = 'FULL-STACK DEVELOPER';
 
   const nameLetters = name.split(' ').map((word, wordIndex) => (
     <Box
@@ -262,7 +294,6 @@ const LandingPage = () => {
           flexDirection="column"
           alignItems="center"
           justifyContent="flex-start"
-          opacity={0}  // Start with hidden state
           ref={scrollRef}
           marginTop={{ base: '-60px', md: '50px', lg: '100px' }}
         >
@@ -272,11 +303,13 @@ const LandingPage = () => {
             fontWeight="bold"
             marginBottom="40px"
             color="white"
+            opacity={opacity} 
             style={{ transform: 'rotate(90deg)' }}
           >
             SCROLL
           </Text>
           <Box
+          opacity={opacity} 
             width="1px"
             height="400px"
             backgroundColor="white"
@@ -323,7 +356,7 @@ const LandingPage = () => {
 
       {/* Arrow SVG */}
       {isSvgVisible && (
-        <svg ref={svgRef} className="arrows">
+        <svg ref={svgRef} className="arrows" style={{ opacity }}>
           <path className="a1" d="M0 0 L30 32 L60 0"></path>
           <path className="a2" d="M0 20 L30 52 L60 20"></path>
           <path className="a3" d="M0 40 L30 72 L60 40"></path>
@@ -390,25 +423,25 @@ const LandingPage = () => {
             fontFamily="Lato, sans-serif"
             textAlign="left"
             color="transparent"  // Set text color to transparent to show the gradient
-            background="linear-gradient(45deg, #d43131, white)"  // Gradient from bottom right (red) to top left (white)
+            background="white"  // Gradient from bottom right (red) to top left (white)
             backgroundClip="text"  // Apply the background to the text
             opacity={0}
           >
-            • ReactJS <br />
-            • Node.js & Express <br />
-            • MongoDB & SQL <br />
-            • GraphQL <br />
-            • Next.js <br />
-            • JSON <br />
-            • TypeScript <br />
-            • RESTful APIs <br />
-            • Authentication <br />
-            • Python <br />
-            • Version Controll <br />
-            • Web Design & UX/UI <br />
-            • Responsive Design <br />
-            • Testing & Debugging <br />
-            • Agile Methodologies <br />
+             ReactJS <br />
+             Node.js & Express <br />
+             MongoDB & SQL <br />
+             GraphQL <br />
+             Next.js <br />
+             JSON <br />
+             TypeScript <br />
+             RESTful APIs <br />
+             Authentication <br />
+             Python <br />
+             Version Controll <br />
+             Web Design & UX/UI <br />
+             Responsive Design <br />
+             Testing & Debugging <br />
+             Agile Methodologies <br />
           </Text>
         </Box>
         <Box position="absolute" width="100%" marginTop={{ base: '10vh', md: '0', lg: '0' }}>
@@ -450,17 +483,19 @@ const LandingPage = () => {
         left="5%"
         zIndex={1}
         width="90%"
-        marginTop={{ base: '400px', md: '360px', lg: '430px' }}
+        marginTop={{ base: '900px', md: '540px', lg: '530px' }}
       >
         {/* Divider */}
         <Box
-          position="relative"
+          position="absolute"
+          top={{ base: '-800px', md: '-110px', lg: '-70px' }}
           width="400px"
           display="flex"
           flexDirection="row"
           alignItems="center"
           justifyContent="flex-start"
-
+           className="custom-divider"
+          marginBottom={{ base: 0, md: "100px", lg: 40 }}  
         >
           <Text
             fontFamily="Lato, sans-serif"
@@ -491,7 +526,7 @@ const LandingPage = () => {
       <Box
         direction={{ base: 'column', md: 'row' }}
         alignItems="flex-start"
-        marginTop={{ base: '500px', md: '400px', lg: '500px' }}
+        marginTop={{ base: '2200px', md: '950px', lg: '850px' }}
         padding={4}
         paddingBottom="80px"
         position="absolute"
@@ -508,7 +543,7 @@ const LandingPage = () => {
           flexDirection="row"
           alignItems="center"
           justifyContent="flex-start"
-          marginTop={{ base: 0, md: 30, lg: 10 }}
+          marginTop={{ base: 0, md: 30, lg: 40 }}
         >
           <Text
             fontFamily="Lato, sans-serif"
@@ -556,7 +591,7 @@ const LandingPage = () => {
                 variant="solid"
                 fontFamily="'Lato', sans-serif"
                 position={{ base: 'absolute', md: 'absolute', lg: 'absolute' }}
-                top={{ base: '80%', md: '82%', lg: '82%' }}
+                top={{ base: '88%', md: '82%', lg: '82%' }}
                 left={{ base: '30%', md: '0%', lg: '0%' }}
                 fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
                 backgroundColor="#353535"

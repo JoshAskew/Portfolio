@@ -4,6 +4,7 @@ body, html {
   background-color: #1a1a1a;
   min-height: 100vh;
   cursor: none;
+  overflow: none;
 }
   
   .cursor-dot {
@@ -114,6 +115,4 @@ body, html {
     transform: rotate(360deg);  /* Initial spin */
   }
 
-
-  
   
