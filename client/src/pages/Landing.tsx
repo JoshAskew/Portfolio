@@ -3,11 +3,11 @@ import { Box, Heading, Text, VStack, Flex, Button } from '@chakra-ui/react';
 import { gsap } from 'gsap';
 import './index.css';
 import Resume from '../assets/Resume.pdf'
-import Spin from "../images/spinner.png"
+import Spin from "../images/Spinner.png"
 import JA from "../images/JA.png"
-import Globe from "../images/globe.png"
+import Globe from "../images/Globe.png"
 import Card from '../components/CardDeck';
-import Dots from '../images/dots.png';
+import Dots from '../images/Dots.png';
 
 
 const LandingPage = () => {
