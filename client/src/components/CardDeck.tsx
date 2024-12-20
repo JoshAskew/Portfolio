@@ -87,7 +87,7 @@ const Card = ({
             </Text>
           </Box>
           <Flex justify="center" gap={4} p={4}>
-            <Button onClick={onExpand} color="white" variant="outline" fontFamily={"Lato, sans-serif"}>
+            <Button onClick={onExpand} color="white" variant="outline" fontFamily={"Lato, sans-serif"} backgroundColor="#242424">
               More Details
             </Button>
           </Flex>
@@ -96,7 +96,15 @@ const Card = ({
 
       {/* Expanded View */}
       {expanded && (
-        <Box p={6} textAlign="center" color="white" fontFamily={"Lato, sans-serif"} height="100%" display="flex" flexDirection="column">
+        <Box p={6} 
+        textAlign="center" 
+        color="white" 
+        fontFamily={"Lato, sans-serif"}
+        height="100%" 
+        display="flex" 
+        flexDirection="column"
+        backgroundColor="#242424"
+          >
           <Text fontSize="18px" fontWeight="bold">{description}</Text>
           <Box
             mt={4}
@@ -118,7 +126,7 @@ const Card = ({
               Live Demo
             </Link>
           </Flex>
-          <Button onClick={onExpand} mt={6} color="white" variant="outline">
+          <Button onClick={onExpand} mt={6} color="white" variant="outline" border="1px solid #1a1a1a" fontFamily={"Lato, sans-serif"}>
             Close
           </Button>
         </Box>

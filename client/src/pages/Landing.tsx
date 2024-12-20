@@ -11,7 +11,6 @@ import Dots from '../images/Dots.png';
 import SkillsSection from '../components/Skills';
 
 
-
 const LandingPage = () => {
   const [isSvgVisible, setIsSvgVisible] = useState(true); // Track visibility of SVG
   const skillsRef = useRef<HTMLDivElement | null>(null); // Reference to the skills section
@@ -24,7 +23,7 @@ const LandingPage = () => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;  // Current scroll position
       const fadeStartPoint = 10;  // Where fading should begin
-      
+
       let newOpacity = 1;
 
       // Only start fading once the scroll position exceeds the fadeStartPoint
@@ -34,7 +33,7 @@ const LandingPage = () => {
         // Calculate new opacity based on how far the user has scrolled
         const fadeFactor = 0.002; // Lower value for faster fading
         newOpacity = 1 - (fadeDistance * fadeFactor);
-        
+
         // Ensure opacity doesn't go below 0
         newOpacity = Math.max(0, newOpacity);
       }
@@ -43,7 +42,7 @@ const LandingPage = () => {
     };
     // Attach scroll event listener
     window.addEventListener('scroll', handleScroll);
-    
+
     // Cleanup the event listener on component unmount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -133,15 +132,6 @@ const LandingPage = () => {
       ease: 'power4.out',  // Smooth easing for the effect
     });
 
-
-    gsap.from('.text', {
-      duration: 1.5,
-      opacity: 0,
-      x: -100,
-      ease: 'power4.out',
-      delay: 0.5,
-    });
-
     gsap.from('.letter', {
       color: '#d43131', // Color to pulse to
       repeat: -1, // Infinite loop
@@ -165,7 +155,7 @@ const LandingPage = () => {
     };
   }, []);
 
-  
+
 
   const name = 'FULL-STACK DEVELOPER';
 
@@ -224,7 +214,7 @@ const LandingPage = () => {
           <Link
             href="https://github.com/JoshAskew"
             target="_blank"
-            textDecoration= "none"
+            textDecoration="none"
           >
             <Heading
               as="h1"
@@ -270,18 +260,19 @@ const LandingPage = () => {
             fontWeight="bold"
             marginBottom="40px"
             color="white"
-            opacity={opacity} 
+            opacity={opacity}
             style={{ transform: 'rotate(90deg)' }}
           >
             SCROLL
           </Text>
           <Box
-          opacity={opacity} 
+            opacity={opacity}
             width="1px"
             height="400px"
             backgroundColor="white"
           />
         </Box>
+
 
         {/* Open to Work Section */}
         <Box
@@ -298,6 +289,7 @@ const LandingPage = () => {
           opacity={0}  // Start with hidden state
           ref={workRef}
         >
+
           <Text
             marginRight={{ base: 0, md: 4, lg: 8 }}
             fontFamily="'Lato', sans-serif"
@@ -434,8 +426,8 @@ const LandingPage = () => {
           flexDirection="row"
           alignItems="center"
           justifyContent="flex-start"
-           className="custom-divider"
-          marginBottom={{ base: 0, md: "100px", lg: 40 }}  
+          className="custom-divider"
+          marginBottom={{ base: 0, md: "100px", lg: 40 }}
         >
           <Text
             fontFamily="Lato, sans-serif"
@@ -535,7 +527,7 @@ const LandingPage = () => {
                 left={{ base: '30%', md: '0%', lg: '0%' }}
                 fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
                 backgroundColor="#1a1a1a"
-                border= "1px solid grey"
+                border="1px solid grey"
                 color="white"
                 _hover={{
                   transform: "scale(1.1)", // Slightly enlarge the button
@@ -610,9 +602,6 @@ const LandingPage = () => {
           </Box>
         </Flex>
       </Box>
-
-
-
     </Box>
   );
 };
