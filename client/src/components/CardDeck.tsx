@@ -1,4 +1,5 @@
-import { Box, Flex, Text, Image, Link } from '@chakra-ui/react';
+import { Box, Flex, Text, Image, Link, Button } from '@chakra-ui/react';
+import { useState } from 'react';
 import TriviaTitans from "../images/trivia-titans-logo.png"; 
 import Aline from "../images/alineold.webp"; 
 import Cypress from "../images/cypress.png"; 
@@ -46,52 +47,90 @@ const Card = ({
   gitHubLink,
   deployedLink,
   description,
+  details,
+  onExpand,
+  expanded,
 }: {
   image: string;
   gitHubLink: string;
   deployedLink: string;
   description: string;
+  details: string;
+  onExpand: () => void;
+  expanded: boolean;
 }) => {
   return (
     <Box
       w="250px"
-      h="400px"
-      borderRadius="3px"
+      minHeight="400px" 
+      position="relative"
       overflow="hidden"
       boxShadow="lg"
       background="#1a1a1a"
       border="1px solid white"
       display="flex"
       flexDirection="column"
-      justifyContent="space-between" // Space out content
-      _hover={{ transform: "scale(1.05)", transition: "0.7s" }}
+      justifyContent="space-between"
+      transition="all 0.6s ease-in-out"
+      transform={expanded ? 'translateY(-100px)' : 'translateY(0)'}
+      _hover={!expanded ? { transform: "scale(1.05)" } : undefined}
     >
-      {/* Image */}
-      <Image src={image} alt="Project Image" w="100%" h="150px" objectFit="cover" />
+      {/* Front Side */}
+      {!expanded && (
+        <>
+          <Box borderBottom="1px solid white" w="100%">
+            <Image src={image} alt="Project Image" w="100%" h="150px" objectFit="cover" />
+          </Box>
+          <Box p={4} textAlign="center" flexGrow={1}>
+            <Text fontWeight="bold" fontSize="lg" mb={2} color="white" fontFamily={"Lato, sans-serif"}>
+              {description}
+            </Text>
+          </Box>
+          <Flex justify="center" gap={4} p={4}>
+            <Button onClick={onExpand} color="white" variant="outline" fontFamily={"Lato, sans-serif"}>
+              More Details
+            </Button>
+          </Flex>
+        </>
+      )}
 
-      {/* Description */}
-      <Box p={4} textAlign="center" flexGrow={1}>
-        <Text fontWeight="bold" fontSize="lg" mb={2} color="white" fontFamily={"Lato, sans-serif"}>
-          {description}
-        </Text>
-      </Box>
-
-      {/* Links */}
-      <Flex justify="center" gap={4} p={4} >
-        <Link href={gitHubLink} target="_blank" color="white" fontWeight="bold" fontFamily={"Lato, sans-serif"}>
-          GitHub -
-        </Link>
-        <Link href={deployedLink} target="_blank" color="white" fontWeight="bold" fontFamily={"Lato, sans-serif"}>
-          Live Demo -
-        </Link>
-      </Flex>
+      {/* Expanded View */}
+      {expanded && (
+        <Box p={6} textAlign="center" color="white" fontFamily={"Lato, sans-serif"} height="100%" display="flex" flexDirection="column">
+          <Text fontSize="18px" fontWeight="bold">{description}</Text>
+          <Box
+            mt={4}
+            overflowY="auto"
+            maxHeight="200px" // Add a max height to limit the scrollable area
+            flexGrow={1} // This will allow the content to expand and take remaining space
+          >
+            <Text
+              fontSize="14px"
+              textAlign="left"
+              fontFamily={"Lato, sans-serif"}
+            >{details}</Text>
+          </Box>
+          <Flex justify="center" gap={4} mt={6}>
+            <Link href={gitHubLink} target="_blank" color="white" fontWeight="bold">
+              GitHub
+            </Link>
+            <Link href={deployedLink} target="_blank" color="white" fontWeight="bold">
+              Live Demo
+            </Link>
+          </Flex>
+          <Button onClick={onExpand} mt={6} color="white" variant="outline">
+            Close
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 };
 
 
-
 const Deck = () => {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
   const descriptions = [
     'Trivia Titans: A trivia game for all knowledge enthusiasts.',
     'Aline Events: Manage your events with ease.',
@@ -103,25 +142,21 @@ const Deck = () => {
     'Employee Tracker: Manage your employees with ease.',
   ];
 
+  const details = [
+    'This project is a trivia game that allows users to test their knowledge in a variety of categories. Users can sign up and login if they wish to track their scores. The game features a leaderboard that displays the top players. The project was built using a MERN stack along with other complimenting programs.',
+    'Aline Events is a full-stack application that allows users to create and manage events. Users can sign up and login to create events, view events, and save events to their profile. The project was built using a MERN stack along with other complimenting programs like Chakra UI. The project features 2 different API calls for ticket data and weather data to help plant outtings accordingly.',
+    'This project is a demonstration of a CI/CD setup using Cypress. The project is a simple React application that is deployed to Render. The CI/CD pipeline is set up to run tests on each push to the main branch and deploy the application to Render on each push to the main branch if the testing is successful.',
+    'This project is a book search engine that allows users to search for books and save them to their profile. The project was built using a MERN stack along with other complimenting programs like Apollo Server and GraphQL. The project features a search bar that allows users to search for books by title or author.',
+    'This was my first group project. We created a playlist organizer that allows users to create playlists bu pulling the url from whatever music platform they use.',
+    'This project is a candidate finder that allows users to search for candidates that have set their settings in GitHub to looking for work. The users can login and save candidates to their profile.',
+    'This project is a README generator that allows users to create professional READMEs for their projects. The project was built using Node.js and Inquirer. The project features a series of prompts that the user can answer to generate a README file.',
+    'This project is an employee tracker that allows users to manage their employees. The project was built using Node.js and Inquirer. The project features a series of prompts that the user can answer to view, add, update, and delete employees, roles, and departments.',
+  ];
+
   return (
-    <Box
-      w="100%"
-      h="100vh"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      flexDirection="column"
-      position="relative"
-      
-    >
-      <Flex
-        wrap="wrap"
-        justify="center"
-        gap={6}
-        position="relative"
-        direction={{ base: 'column', md: 'row' }}
-        p={4}
-      >
+    <Box w="100%" h="100vh" display="flex" justifyContent="center" alignItems="center" flexDirection="column">
+      <Text fontFamily={"Lato, sans-serif"}>SOME LIVE DEMOS MAY TAKE UP TO 2 MINUTES TO SPIN BACK UP</Text>
+      <Flex wrap="wrap" justify="center" gap={6} p={4}>
         {images.map((image, i) => (
           <Card
             key={i}
@@ -129,6 +164,9 @@ const Deck = () => {
             gitHubLink={gitHubLinks[i]}
             deployedLink={deployedLinks[i]}
             description={descriptions[i]}
+            details={details[i]}
+            onExpand={() => setExpandedIndex(expandedIndex === i ? null : i)}
+            expanded={expandedIndex === i}
           />
         ))}
       </Flex>

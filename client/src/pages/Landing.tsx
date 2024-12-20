@@ -8,11 +8,11 @@ import JA from "../images/JA.png"
 import Globe from "../images/Globe.png"
 import Card from '../components/CardDeck';
 import Dots from '../images/Dots.png';
+import SkillsSection from '../components/Skills';
 
 
 
 const LandingPage = () => {
-  const [isSkillsVisible, setIsSkillsVisible] = useState(false); // Track visibility of Skills section
   const [isSvgVisible, setIsSvgVisible] = useState(true); // Track visibility of SVG
   const skillsRef = useRef<HTMLDivElement | null>(null); // Reference to the skills section
   const svgRef = useRef<SVGSVGElement | null>(null); // Reference to the SVG
@@ -151,39 +151,6 @@ const LandingPage = () => {
       ease: 'power1.inOut', // Smooth color transition
     });
   }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsSkillsVisible(true);
-        } else {
-          setIsSkillsVisible(false);
-        }
-      },
-      {
-        threshold: 0.4, // Trigger when at least 50% of the Skills section is visible
-      }
-    );
-
-    if (skillsRef.current) {
-      observer.observe(skillsRef.current);
-    }
-
-    return () => {
-      if (skillsRef.current) {
-        observer.unobserve(skillsRef.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isSkillsVisible) {
-      gsap.to('.skills-text', { opacity: 1, duration: 1 });
-    } else {
-      gsap.to('.skills-text', { opacity: 0, duration: 1 });
-    }
-  }, [isSkillsVisible]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -414,35 +381,8 @@ const LandingPage = () => {
             </Box>
           </Box>
 
+          <SkillsSection />
 
-          <Text
-            className="skills-text"
-            fontSize="32px"
-            fontWeight="extrabold"
-            lineHeight="1.4"
-            fontFamily="Lato, sans-serif"
-            textAlign="left"
-            color="transparent"  // Set text color to transparent to show the gradient
-            background="white"  // Gradient from bottom right (red) to top left (white)
-            backgroundClip="text"  // Apply the background to the text
-            opacity={0}
-          >
-             ReactJS <br />
-             Node.js & Express <br />
-             MongoDB & SQL <br />
-             GraphQL <br />
-             Next.js <br />
-             JSON <br />
-             TypeScript <br />
-             RESTful APIs <br />
-             Authentication <br />
-             Python <br />
-             Version Controll <br />
-             Web Design & UX/UI <br />
-             Responsive Design <br />
-             Testing & Debugging <br />
-             Agile Methodologies <br />
-          </Text>
         </Box>
         <Box position="absolute" width="100%" marginTop={{ base: '10vh', md: '0', lg: '0' }}>
           <Image
@@ -530,9 +470,9 @@ const LandingPage = () => {
         padding={4}
         paddingBottom="80px"
         position="absolute"
-        top="240vh" // Positioning for the new section below Featured Work
+        top="240vh"
         left="5%"
-        zIndex={1}
+        zIndex={0}
         width="90%"
       >
         {/* Divider */}
@@ -594,12 +534,14 @@ const LandingPage = () => {
                 top={{ base: '88%', md: '82%', lg: '82%' }}
                 left={{ base: '30%', md: '0%', lg: '0%' }}
                 fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
-                backgroundColor="#353535"
+                backgroundColor="#1a1a1a"
+                border= "1px solid grey"
                 color="white"
                 _hover={{
                   transform: "scale(1.1)", // Slightly enlarge the button
                   transition: "all 0.5s ease-in-out",
                   backgroundColor: "#d43131", // Change the background color on hover
+                  border: "none",
                 }}
               >
                 Resume Download
