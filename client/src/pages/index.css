@@ -14,7 +14,7 @@ body, html {
     background-color: white;
     border-radius: 50%;
     pointer-events: none; /* Ensures the dot doesn't block clicks */
-    z-index: 1;
+    z-index: 1000;
     transform: translate(-50%, -50%);
   }
 
@@ -25,7 +25,7 @@ body, html {
     border: 2px solid white; /* White border for the circle */
     border-radius: 50%;
     pointer-events: none; /* Ensures the circle doesn't block clicks */
-    z-index: 1; /* Below the dot */
+    z-index: 1000; /* Below the dot */
     transform: translate(-50%, -50%);
     transition: transform 0.1s ease, opacity 0.1s ease; /* Smooth animations */
   }

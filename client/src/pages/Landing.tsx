@@ -9,6 +9,7 @@ import Globe from "../images/Globe.png"
 import Card from '../components/CardDeck';
 import Dots from '../images/Dots.png';
 import SkillsSection from '../components/Skills';
+// import Chatbot from '../components/ChatBot';
 
 
 const LandingPage = () => {
@@ -186,8 +187,7 @@ const LandingPage = () => {
       position="relative"
       backgroundColor="#1b1b1"
     >
-
-
+        
       <VStack >
         <Box
           position="absolute"
@@ -272,7 +272,14 @@ const LandingPage = () => {
             backgroundColor="white"
           />
         </Box>
-
+        <Box
+          position="absolute"
+          top="50px"
+          right= "100px"
+         
+          >
+        {/* <Chatbot /> */}
+        </Box>
 
         {/* Open to Work Section */}
         <Box
