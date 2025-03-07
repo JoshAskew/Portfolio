@@ -5,7 +5,7 @@ import Aline from "../images/alineold.webp";
 import Cypress from "../images/cypress.png"; 
 import BookSearch from "../images/booksearch.png"; 
 import Skull from "../images/Skull-tune-forge.png"; 
-import Candidate from "../images/Candidate.png";
+import God from "../images/book-hero-image.png";
 import Employee from "../images/Employee.png";
 import Readme from '../images/readme.png';
 
@@ -15,7 +15,7 @@ const images = [
   Cypress,
   BookSearch,
   Skull,
-  Candidate,
+  God,
   Readme,
   Employee,
 ];
@@ -24,7 +24,7 @@ const gitHubLinks = [
   'https://github.com/kyand38/Trivia-Titans',
   'https://github.com/JoshAskew/Aline-Events',
   'https://github.com/JoshAskew/CI-CD-Setup',
-  'https://github.com/JoshAskew/Book-Search-Engine',
+  'https://github.com/JoshAskew/GodFriends',
   'https://github.com/JoshAskew/TuneForge',
   'https://github.com/JoshAskew/Candidate-Finder',
   'https://github.com/JoshAskew/README-Generator',
@@ -37,7 +37,7 @@ const deployedLinks = [
   'https://drive.google.com/file/d/1dStDaVlv8MsPqQEgRrCM4VF6fS5d1l3F/view?usp=sharing',
   'https://book-search-engine-1m61.onrender.com/',
   'https://yahye-mohamed101.github.io/TuneForge/',
-  'https://candidate-finder.onrender.com/',
+  'https://godfriends.life/',
   'https://drive.google.com/file/d/17jJPLocSZPg2-Nmu7JCSovt07bV2Yt0O/view?usp=sharing',
   'https://drive.google.com/file/d/1yquAxd2P-zdMhfMQ_Fr8S1LJSVSJ1pHz/view?usp=sharing',
 ];
@@ -145,7 +145,7 @@ const Deck = () => {
     'CI/CD Setup: Automate your development pipeline.',
     'Book Search Engine: Find and save your favorite books.',
     'TuneForge: A platform for music creation.',
-    'Candidate Finder: Discover candidates effortlessly.',
+    'God Friends: A Book release page.',
     'README Generator: Create professional READMEs.',
     'Employee Tracker: Manage your employees with ease.',
   ];
@@ -156,7 +156,7 @@ const Deck = () => {
     'This project is a demonstration of a CI/CD setup using Cypress. The project is a simple React application that is deployed to Render. The CI/CD pipeline is set up to run tests on each push to the main branch and deploy the application to Render on each push to the main branch if the testing is successful.',
     'This project is a book search engine that allows users to search for books and save them to their profile. The project was built using a MERN stack along with other complimenting programs like Apollo Server and GraphQL. The project features a search bar that allows users to search for books by title or author.',
     'This was my first group project. We created a playlist organizer that allows users to create playlists by pulling the url from whatever music platform they use.',
-    'This project is a candidate finder that allows users to search for candidates that have set their settings in GitHub to looking for work. The users can login and save candidates to their profile.',
+    'This project is a landing page for a book written by 2 pastors. The user is able to read about the book, the authors, and purchase the book. They are also able to send and email via a "Get in touch" form using Regex.',
     'This project is a README generator that allows users to create professional READMEs for their projects. The project was built using Node.js and Inquirer. The project features a series of prompts that the user can answer to generate a README file.',
     'This project is an employee tracker that allows users to manage their employees. The project was built using Node.js and Inquirer. The project features a series of prompts that the user can answer to view, add, update, and delete employees, roles, and departments.',
   ];
